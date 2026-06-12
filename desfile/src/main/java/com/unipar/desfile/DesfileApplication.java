@@ -65,6 +65,26 @@ public class DesfileApplication {
                 System.out.println("-> A transação falhou e o banco fez o Rollback (nada foi salvo).");
             }
 
+            // 5. CRUD: Fazendo DELETE
+
+            System.out.println("\n===========================================");
+            System.out.println("Deletando Modelo Gerada");
+            System.out.println("===========================================");
+
+            // CRIANDO MODELO
+
+            Modelo modeloAdicional = new Modelo();
+            modeloAdicional.setNome("Elle Fanning");
+            modeloAdicional.setCache(1000.0);
+            modeloAdicional = modeloRepo.save(modeloAdicional);
+            System.out.println("-> Modelo criada com o ID:" + modeloAdicional.getId());
+
+            // DELENTANDO MODELO
+
+            modeloRepo.deleteById(modeloAdicional.getId());
+            System.out.println("-> Modelo Elle Fanning deletada do banco com sucesso.");
+
+
             System.out.println("\n===========================================");
             System.out.println("EXECUÇÃO FINALIZADA COM SUCESSO!");
             System.out.println("===========================================");
